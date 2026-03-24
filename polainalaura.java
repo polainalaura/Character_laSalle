@@ -51,6 +51,43 @@ public class polainalaura {
             }
         }
 
+        // Entrada del nivel validada como número entero dentro del rango
+        int nivel = -1;
+        while (true) {
+            System.out.print("Nivel (1-50): ");
+
+            if (sc.hasNextInt()) {
+                nivel = sc.nextInt();
+                if (nivel >= 1 && nivel <= 50) {
+                    break;
+                } else {
+                    System.out.println("El nivel debe estar entre 1 y 50.");
+                }
+            } else {
+                System.out.println("Debes introducir un número entero.");
+                sc.next();
+            }
+        }
+
+        // Entrada de experiencia validada como número entero dentro del rango
+        int exp = -1;
+        while (true) {
+            System.out.print("Experiencia (0-9999): ");
+
+            if (sc.hasNextInt()) {
+                exp = sc.nextInt();
+                if (exp >= 0 && exp <= 9999) {
+                    break;
+                } else {
+                    System.out.println("La experiencia debe estar entre 0 y 9999.");
+                }
+            } else {
+                System.out.println("Debes introducir un número entero.");
+                sc.next();
+            }
+        }
+
+        sc.nextLine(); // Limpieza del buffer
 
         // Creación del personaje y confirmación
         lista.add(new Personaje(nombre, nivel, exp));
@@ -60,7 +97,11 @@ public class polainalaura {
 
     static void eliminar() {
 
-
+        // Comprobación inicial: no se puede eliminar si la lista está vacía
+        if (lista.size() == 0) {
+            System.out.println("No hay datos para eliminar.");
+            return;
+        }
 
         // Mostrar listado numerado para que el usuario elija
         for (int i = 0; i < lista.size(); i++) {
@@ -93,6 +134,12 @@ public class polainalaura {
 
     static void ranking() {
 
+        // Comprobación inicial: no se puede mostrar ranking si no hay personajes
+        if (lista.size() == 0) {
+            System.out.println("No existen personajes para mostrar el ranking.");
+            return;
+        }
+
 
 
         // Muestra del ranking al usuario
@@ -101,6 +148,8 @@ public class polainalaura {
             System.out.println(c);
         }
 
+        // Mensaje final indicando retorno al menú
+        System.out.println("\nRanking mostrado correctamente. Volviendo al menú...");
     }
 
 
