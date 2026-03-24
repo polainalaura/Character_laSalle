@@ -7,10 +7,12 @@ public class Personaje {
 
 
     public Personaje(String name, int level, int experience) {
-        this.Name = name;
+        this.name = name;
         this.level = level;
-
+        this.experience = experience;
     }
+
+    
 
     public String getName() {
         return name;
