@@ -1,7 +1,7 @@
 //creacion del personaje
 public class Personaje {
 
-    private String Name;
+    private String name;
     private int level;
     private int experience;
 //datos para la clase de personaje
